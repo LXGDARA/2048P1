@@ -149,7 +149,7 @@ int main()
     int i = 1;
     while(i == 1)
     {
-       /* int k = 2;
+        int k = 2;
         while(k == 2)
         {
             int x = rand() % 4;
@@ -160,7 +160,7 @@ int main()
 
             k--;
         }
-            */
+           
            grid.addUp();
            grid.addRowsRt();
            grid.addRowsDn();

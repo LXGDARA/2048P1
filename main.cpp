@@ -15,13 +15,7 @@ using namespace std;
 
         int counter = 4;
 
-        int Size[4][4] = {
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0},
-            {0, 0, 0, 0}
-            };
-
+                int Size[4][4] = {};
 
                 void addUp()
                 {
@@ -42,6 +36,33 @@ using namespace std;
                         }
 
                     }
+
+                   /* return Size[row1][0];
+                    return Size[row1][1];
+                    return Size[row1][2];
+                    return Size[row1][3];
+
+                    return Size[row2][0];
+                    return Size[row2][1];
+                    return Size[row2][2];
+                    return Size[row2][3];
+
+                    return Size[row3][0];
+                    return Size[row3][1];
+                    return Size[row3][2];
+                    return Size[row3][3];
+
+                    return Size[row4][0];
+                    return Size[row4][1];
+                    return Size[row4][2];
+                    return Size[row4][3];
+                    */
+
+                    system("CLS");
+                   cout << Size[row1][0] << " " << Size[row1][1] << " " << Size[row1][2] << " " << Size[row1][3] << endl;
+                   cout << Size[row2][0] << " " << Size[row2][1] << " " << Size[row2][2] << " " << Size[row2][3] << endl;
+                   cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
+                   cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
 
                 }
 
@@ -67,6 +88,33 @@ using namespace std;
 
                     }
 
+                   /* return Size[row1][0];
+                    return Size[row1][1];
+                    return Size[row1][2];
+                    return Size[row1][3];
+
+                    return Size[row2][0];
+                    return Size[row2][1];
+                    return Size[row2][2];
+                    return Size[row2][3];
+
+                    return Size[row3][0];
+                    return Size[row3][1];
+                    return Size[row3][2];
+                    return Size[row3][3];
+
+                    return Size[row4][0];
+                    return Size[row4][1];
+                    return Size[row4][2];
+                    return Size[row4][3];
+                        */
+
+                    system("CLS");
+                   cout << Size[row1][0] << " " << Size[row1][1] << " " << Size[row1][2] << " " << Size[row1][3] << endl;
+                   cout << Size[row2][0] << " " << Size[row2][1] << " " << Size[row2][2] << " " << Size[row2][3] << endl;
+                   cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
+                   cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
+
                 }
                 void addRowsLf()
                 {
@@ -88,6 +136,34 @@ using namespace std;
                         }
 
                     }
+
+                   /* return Size[row1][0];
+                    return Size[row1][1];
+                    return Size[row1][2];
+                    return Size[row1][3];
+
+                    return Size[row2][0];
+                    return Size[row2][1];
+                    return Size[row2][2];
+                    return Size[row2][3];
+
+                    return Size[row3][0];
+                    return Size[row3][1];
+                    return Size[row3][2];
+                    return Size[row3][3];
+
+                    return Size[row4][0];
+                    return Size[row4][1];
+                    return Size[row4][2];
+                    return Size[row4][3];
+                    */
+
+                    system("CLS");
+                   cout << Size[row1][0] << " " << Size[row1][1] << " " << Size[row1][2] << " " << Size[row1][3] << endl;
+                   cout << Size[row2][0] << " " << Size[row2][1] << " " << Size[row2][2] << " " << Size[row2][3] << endl;
+                   cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
+                   cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
+
                 }
                 void addRowsDn()
                 {
@@ -107,10 +183,36 @@ using namespace std;
 
                         }
 
-                     }
+                    /*return Size[row1][0];
+                    return Size[row1][1];
+                    return Size[row1][2];
+                    return Size[row1][3];
 
+                    return Size[row2][0];
+                    return Size[row2][1];
+                    return Size[row2][2];
+                    return Size[row2][3];
+
+                    return Size[row3][0];
+                    return Size[row3][1];
+                    return Size[row3][2];
+                    return Size[row3][3];
+
+                    return Size[row4][0];
+                    return Size[row4][1];
+                    return Size[row4][2];
+                    return Size[row4][3];
+                    */
+
+                    system("CLS");
+                   cout << Size[row1][0] << " " << Size[row1][1] << " " << Size[row1][2] << " " << Size[row1][3] << endl;
+                   cout << Size[row2][0] << " " << Size[row2][1] << " " << Size[row2][2] << " " << Size[row2][3] << endl;
+                   cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
+                   cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
+
+                     }
                 }
-                int ShowG()
+                /*int ShowG()
                 {
                     return Size[row1][0];
                     return Size[row1][1];
@@ -139,28 +241,29 @@ using namespace std;
                    cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
                    cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
 
-                }
+                }*/
 
     };
 
 int main()
 {
     game grid;
-    int i = 1;
-    while(i == 1)
-    {
-       /* int k = 2;
-        while(k == 2)
-        {
-            int x = rand() % 4;
 
-            int y = rand() % 4;
+    int k = 2;
+    int x;
+    int y;
+        for(k = 2; k>=0; k--)
+        {
+            x = rand() % 4;
+
+            y = rand() % 4;
 
             grid.Size[x][y] = 2;
-
-            k--;
         }
-            */
+
+    int i = 1;
+    while(i == 1)//the purpose of this code is to see if works at least
+    {
            grid.addUp();
            grid.addRowsRt();
            grid.addRowsDn();

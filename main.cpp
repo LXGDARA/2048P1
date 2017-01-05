@@ -1,6 +1,10 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
+#include <conio.h>
+#include <dos.h>
+#include <window.h>
+#include <time.h>
 using namespace std;
 
     class game{

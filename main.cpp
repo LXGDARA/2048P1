@@ -17,25 +17,24 @@ using namespace std;
 
                 int Size[4][4] = {};
 
-                void addUp()
-                {
+                void addUp(){
                     int ind = -1;
                     int val1 = -1;
                     int val2 = 0;
-                  for(ind = -1;ind<counter;ind++){ /* counter (very important) moves elements up.*/
-                     
-                        for(val1 = -1; val1<counter; val1++){
-                            
-                            for(val2 = 0; val2<counter; val2++){
-                                
-                                Size[row1][ind] = Size[row1][val1] + Size[row2][val2];
-                                Size[row2][ind] = Size[row2][val1] + Size[row3][val2];
-                                Size[row3][ind] = Size[row3][val1] + Size[row4][val2]; //* adding the rows*//
+                      for(ind = -1;ind<counter;ind++){ /* counter (very important) moves elements up.*/
+
+                            for(val1 = -1; val1<counter; val1++){
+
+                                for(val2 = 0; val2<counter; val2++){
+
+                                    Size[row1][ind] = Size[row1][val1] + Size[row2][val2];
+                                    Size[row2][ind] = Size[row2][val1] + Size[row3][val2];
+                                    Size[row3][ind] = Size[row3][val1] + Size[row4][val2]; //* adding the rows*//
+                                }
+
                             }
 
                         }
-
-                    }
 
                   
                     system("CLS");

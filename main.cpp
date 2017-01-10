@@ -1,19 +1,11 @@
 #include <iostream>
 #include <time.h>
 #include <stdlib.h>
-#include <conio.h>
-#include <dos.h>
-#include <window.h>
 #include <time.h>
 using namespace std;
 
     class game{
     public:
-    int row2 = 1;
-    int row1 = 0;
-    int row3 = 2;
-    int row4 = 3;
-    int counter = 4;
     int Size[4][4] = {
         {1, 1, 0, 0},
         {0, 0, 0, 0},
@@ -22,6 +14,11 @@ using namespace std;
     };
 
     void addUp(){
+        int counter = 4;
+        int row2 = 1;
+        int row1 = 0;
+        int row3 = 2;
+        int row4 = 3;
         int ind = -1;
         int val1 = -1;
         int val2 = 0;
@@ -46,6 +43,11 @@ using namespace std;
     }
 
     void addRowsRt(){
+        int counter = 4;
+        int row2 = 1;
+        int row1 = 0;
+        int row3 = 2;
+        int row4 = 3;
         int ind = 0;
         int val1 = 0;
         int val2 = 0;
@@ -72,7 +74,11 @@ using namespace std;
 
     }
     void addRowsLf(){
-
+        int counter = 4;
+        int row2 = 1;
+        int row1 = 0;
+        int row3 = 2;
+        int row4 = 3;
         int ind =0;
         int val1 = 0;
         int val2 = 1;
@@ -97,7 +103,11 @@ using namespace std;
        cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
     }
     void addRowsDn(){
-
+        int counter = 4;
+        int row2 = 1;
+        int row1 = 0;
+        int row3 = 2;
+        int row4 = 3;
         int ind = 0;
         int val1 = 0;
         int val2 = 0;
@@ -119,37 +129,25 @@ using namespace std;
        cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
        cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
     }
-    int ShowG(){
-        return Size[row1][0];
-        return Size[row1][1];
-        return Size[row1][2];
-        return Size[row1][3];
-
-        return Size[row2][0];
-        return Size[row2][1];
-        return Size[row2][2];
-        return Size[row2][3];
-
-        return Size[row3][0];
-        return Size[row3][1];
-        return Size[row3][2];
-        return Size[row3][3];
-
-        return Size[row4][0];
-        return Size[row4][1];
-        return Size[row4][2];
-        return Size[row4][3];
-
-
-       system("CLS");
-       cout << Size[row1][0] << " " << Size[row1][1] << " " << Size[row1][2] << " " << Size[row1][3] << endl;
-       cout << Size[row2][0] << " " << Size[row2][1] << " " << Size[row2][2] << " " << Size[row2][3] << endl;
-       cout << Size[row3][0] << " " << Size[row3][1] << " " << Size[row3][2] << " " << Size[row3][3] << endl;
-       cout << Size[row4][0] << " " << Size[row4][1] << " " << Size[row4][2] << " " << Size[row4][3] << endl;
-
+    void ShowG(){
+        // Dcount = display counter
+        // Rows == a substitute for value
+            int counter = 4;
+            int RowS = 0;
+            for(int Dcount = 0; Dcount <=counter; Dcount ++){
+            
+                for(int Dcount2 = 0; Dcount2<=counter; Dcount2++){
+                    
+                    cout << Size[RowS][Dcount];
+                    while(Dcount2 == 4){
+                        RowS++;
+                        Dcount2 = 0;
+                }
+            }
+            cout << endl;
+        }
     }
-
-    };
+};
 
 int main()
 {
@@ -169,10 +167,11 @@ int main()
     int i = 1;
     //the purpose of this code is to see if works at least
     while(i == 1){
-           grid.addUp();
-           grid.addRowsRt();
-           grid.addRowsDn();
-           grid.addRowsLf();
+        /*grid.addUp();
+        grid.addRowsRt();
+        grid.addRowsDn();
+        grid.addRowsLf();*/
+        grid.ShowG();
     }
     return 0;
 }

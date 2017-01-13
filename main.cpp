@@ -5,9 +5,10 @@
 #include <time.h>
 
 using namespace std;
+    int board[4][4] = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
     class game{
         public:
-        int board[4][4] = {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+        
         void addUp(){
             int counter = 4;
             int row2 = 1;

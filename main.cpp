@@ -20,11 +20,10 @@ using namespace std;
            // increases position in table
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
-                    for(val2 = 0; val2<counter; val2++){
-                        board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
-                        board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
-                        board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3}      
-                    }
+                        
+                        board[row1][val1] += board[row2][val1]; // places values in one box one the table in row 1
+                        board[row2][val1] += board[row3][val1]; // places values in one box one the table in row 2
+                        board[row3][val1] += board[row4][val1]; // places values in one box one the table in row 3}      
                 }
            }
 
@@ -40,7 +39,7 @@ using namespace std;
                 // increases position in table
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
-                    for(val2 = 1; val2<counter; val2++){
+                    for(val2 = 1; val2<=3; val2++){
                         board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
                         board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
                         board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
@@ -60,7 +59,7 @@ using namespace std;
                 // increases position in table
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
-                    for(val2 = 1; val2<counter; val2++){
+                    for(val2 = 1; val2<=3; val2++){
                         board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
                         board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
                         board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
@@ -79,17 +78,15 @@ using namespace std;
             // counter is set to equal 4, and also serves as the number of times the position of the boxes will increase in a proxy place
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
-                    for(val2 = 0; val2<counter; val2++){
                         board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
-                        board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
-                        board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
-                    }
+                        board[row2][val1] += board[row3][val2]; // places values in one box one the table in row 2
+                        board[row3][val1] += board[row4][val2]; // places values in one box one the table in row 3
                 }
         }
         void showG(){
             for(int i = 0; i <4; i++){
                 for(int j = 0; j < 4; j++){
-                    cout << board[i][j] << "   ";
+                    cout << "\t\t" << board[i][j] << "   ";
                 }
             cout << endl;
             }
@@ -130,6 +127,7 @@ using namespace std;
 
 int main()
 {
+    
     game grid;
     grid.boardinit();
     grid.randpos();
@@ -138,13 +136,16 @@ int main()
     //the purpose of this code is to see if works at least
     while(i>0){
         grid.addUp();
-        Sleep(100 * 3);
+        Sleep(1000 * 3);
+        grid.showG();
         grid.addRowsRt();
-        Sleep(100 * 3);
+        Sleep(1000 * 3);
+        grid.showG();
         grid.addRowsDn();
-        Sleep(100 * 3);
+        Sleep(1000 * 3);
+        grid.showG();
         grid.addRowsLf();
-        Sleep(100 * 3);
+        Sleep(1000 * 3);
         grid.showG();
     }
     return 0;

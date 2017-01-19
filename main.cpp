@@ -20,10 +20,18 @@ using namespace std;
            // increases position in table
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
-                        
-                        board[row1][val1] += board[row2][val1]; // places values in one box one the table in row 1
-                        board[row2][val1] += board[row3][val1]; // places values in one box one the table in row 2
-                        board[row3][val1] += board[row4][val1]; // places values in one box one the table in row 3}      
+                        if(board[row1][val1] == board[row2][val1]){
+                            board[row1][val1] += board[row2][val1]; // places values in one box one the table in row 1
+                        }
+                        if(board[row2][val1] == board[row3][val1]){
+                            board[row2][val1] += board[row3][val1]; // places values in one box one the table in row 2
+                        }
+                        if(board[row3][val1] == board[row4][val1]){
+                            board[row3][val1] += board[row4][val1]; // places values in one box one the table in row 3}
+                        }
+                        if(board[row4][val1] == board[row3][val1]){
+                            board[row4][val1] += board[row3][val1];      
+                        }
                 }
            }
 
@@ -40,13 +48,21 @@ using namespace std;
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
                     for(val2 = 1; val2<=3; val2++){
-                        board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
-                        board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
-                        board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
-                        board[row4][val1] += board[row4][val2]; // places values in one box one the table in row 4
+                        if(board[row1][val2] == board[row1][val1]){
+                            board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
+                        }
+                        if(board[row2][val2] == board[row1][val1]){
+                            board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
+                        }
+                        if(board[row3][val2] == board[row1][val1]){
+                            board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
+                        }
+                        if(board[row4][val2] == board[row1][val1]){
+                            board[row4][val1] += board[row4][val2]; // places values in one box one the table in row 4
+                        }
                     }
                 }
-            }
+        }
         void addRowsLf(){
             int counter = 4;
             int row2 = 1;
@@ -60,10 +76,18 @@ using namespace std;
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
                     for(val2 = 1; val2<=3; val2++){
-                        board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
-                        board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
-                        board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
-                        board[row4][val1] += board[row4][val2]; // places values in one box one the table in row 4
+                        if(board[row1][val1] == board[row1][val2]){
+                            board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
+                        }
+                        if(board[row1][val1] == board[row1][val2]){
+                            board[row2][val1] += board[row2][val2]; // places values in one box one the table in row 2
+                        }
+                        if(board[row1][val1] == board[row1][val2]){
+                            board[row3][val1] += board[row3][val2]; // places values in one box one the table in row 3
+                        }
+                        if(board[row1][val1] == board[row1][val2]){
+                            board[row4][val1] += board[row4][val2]; // places values in one box one the table in row 4
+                        }
                     }
                 }
        }
@@ -78,9 +102,18 @@ using namespace std;
             // counter is set to equal 4, and also serves as the number of times the position of the boxes will increase in a proxy place
                 for(val1 = 0; val1<counter; val1++){
                     // increases second position in which will be added
-                        board[row1][val1] += board[row1][val2]; // places values in one box one the table in row 1
-                        board[row2][val1] += board[row3][val2]; // places values in one box one the table in row 2
-                        board[row3][val1] += board[row4][val2]; // places values in one box one the table in row 3
+                        if(board[row4][val1] == board[row3][val1]){
+                            board[row4][val1] += board[row3][val1]; // places values in one box one the table in row 1
+                        }
+                        if(board[row1][val1] == board[row2][val2]){
+                            board[row3][val1] += board[row2][val1]; // places values in one box one the table in row 2
+                        }
+                        if(board[row2][val1] == board[row1][val2]){
+                            board[row2][val1] += board[row1][val1]; // places values in one box one the table in row 3
+                        }
+                        if(board[row1][val1] == board[row2][val2]){
+                            board[row1][val1] += board[row2][val1]; // places values in one box one the table in row 3
+                        }
                 }
         }
         void showG(){
@@ -106,6 +139,16 @@ using namespace std;
                 i++;
             }
             cout << "finish while loop in randpos" << endl;
+        }
+        void spcfill(){
+            int i;
+            int y;
+            int x;
+            i = 0;    
+            x = rand() % 4;
+            y = rand() % 4;
+            board[x][y] = 1;
+            i++;
         } 
         void boardinit(){
             int counter = 4;
@@ -135,19 +178,28 @@ int main()
     int i = 10;
     //the purpose of this code is to see if works at least
     while(i>0){
+        cout << endl;
+        grid.showG();
         grid.addUp();
+        cout << endl << "------------------------------------------------------------------^";
+        grid.spcfill();
         Sleep(1000 * 3);
         grid.showG();
         grid.addRowsRt();
+        cout << endl << "------------------------------------------------------------------>";
+        grid.spcfill();
         Sleep(1000 * 3);
         grid.showG();
         grid.addRowsDn();
+        cout << endl << "------------------------------------------------------------------v";
+        grid.spcfill();
         Sleep(1000 * 3);
         grid.showG();
         grid.addRowsLf();
+        cout << endl << "------------------------------------------------------------------<";
+        grid.spcfill();
         Sleep(1000 * 3);
         grid.showG();
     }
     return 0;
 }
-

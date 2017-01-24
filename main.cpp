@@ -247,6 +247,7 @@ int main()
     game grid;
     grid.boardinit();
     grid.randpos();
+    cout << "\t\t" << "Welcome to 2048!!!" << endl << "\t\t" << "The game plays itself, so sit back and watch!" << endl << endl;
     // randomizes positions to begin with or so it should
     int i = 1;
     //the purpose of this code is to see if works at least
@@ -262,7 +263,7 @@ int main()
     grid.showG();
     grid.gamechk();
     grid.spcfill();
-    cout << endl << "^" << endl << "|" << endl << "|";
+    cout << endl << "\t\t" << "^" << endl << "|" << endl << "|" << endl;
     break;
 
     case 1:
@@ -271,7 +272,7 @@ int main()
     grid.showG();
     grid.gamechk();
     grid.spcfill();
-    cout << endl << "-" << "-" << ">";
+    cout << endl << "\t\t" << "-" << "-" << ">" << endl;
 
     case 2:
     Sleep(1000 * 3);
@@ -279,7 +280,7 @@ int main()
     grid.showG();
     grid.gamechk();
     grid.spcfill();
-    cout << endl << "|" << endl << "|" << endl << "v" ;
+    cout << endl << "\t\t" << "|" << endl << "|" << endl << "v" << endl;
 
     case 3:
     Sleep(1000 * 3);
@@ -287,7 +288,7 @@ int main()
     grid.showG();
     grid.gamechk();
     grid.spcfill();
-    cout << endl << "<" << "-" << "-";
+    cout << endl << "\t\t" << "<" << "-" << "-" << endl;
 
     }
 

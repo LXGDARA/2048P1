@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <windows.h>
+#include <math.h>
 using namespace std;
     int board[4][4] = {};
     class game{
@@ -19,7 +20,7 @@ using namespace std;
             // increases position in table
             for(val1 = 0; val1<counter; val1++){
                 // increases second position in which will be added
-                if(board[row1][val1] == board[row2][val1] || 0){
+                if(board[row1][val1] == board[row2][val1]){
                     board[row1][val1] += board[row2][val1]; // places values in one box one the table in row 1
                     board[row2][val1] = 0;
                 }
@@ -27,7 +28,7 @@ using namespace std;
                         board[row1][val1] = board[row2][val1];
                         board[row2][val1] = 0;
                 }
-                if(board[row2][val1] == board[row3][val1] || 0){
+                if(board[row2][val1] == board[row3][val1]){
                     board[row2][val1] += board[row3][val1]; // places values in one box one the table in row 2
                     board[row3][val1] = 0;
                 }
@@ -35,7 +36,7 @@ using namespace std;
                     board[row2][val1] = board[row3][val1];
                     board[row3][val1] = 0;
                 }
-                if(board[row3][val1] == board[row4][val1] || 0){
+                if(board[row3][val1] == board[row4][val1]){
                     board[row3][val1] += board[row4][val1]; // places values in one box one the table in row 3}
                     board[row4][val1] = 0;
                 }
@@ -190,7 +191,6 @@ using namespace std;
             cout << "finish while loop in randpos" << endl;
         }
         void spcfill(){
-
             int y;
             int x;
             x = rand() % 4;
@@ -200,7 +200,6 @@ using namespace std;
             }
         }
         void gamechk(){
-
             int row2 = 1;
             int row1 = 0;
             int row3 = 2;
@@ -210,7 +209,7 @@ using namespace std;
                 if(board[row1][i] || board[row2][i] || board[row3][i] || board[row4][i] == 36){
                     break;
                     system("pause");
-                cout << "Congrats you reached 2^36 and beat Mr.shelby's highscore!!";
+                    cout << "Congrats you reached 2^36 and beat Mr.shelby's highscore!!";
                 }
             }
         }
@@ -249,40 +248,48 @@ int main()
     grid.boardinit();
     grid.randpos();
     // randomizes positions to begin with or so it should
-    int i = 10;
+    int i = 1;
     //the purpose of this code is to see if works at least
     while(i>0){
 
-        Sleep(100 * 3);
-        grid.addUp();
-        grid.showG();
-        grid.gamechk();
-        grid.spcfill();
-        cout << endl << "^" << endl << "|" << endl << "|";
+    int j;
+    j = rand() % 4;
 
-        Sleep(100 * 3);
-        grid.addRowsRt();
-        grid.showG();
-        grid.gamechk();
-        grid.spcfill();
-        cout << endl << "-" << "-" << ">";
+    switch(j){
+    case 0 :
+    Sleep(1000 * 3);
+    grid.addUp();
+    grid.showG();
+    grid.gamechk();
+    grid.spcfill();
+    cout << endl << "^" << endl << "|" << endl << "|";
+    break;
 
+    case 1:
+    Sleep(1000 * 3);
+    grid.addRowsRt();
+    grid.showG();
+    grid.gamechk();
+    grid.spcfill();
+    cout << endl << "-" << "-" << ">";
 
-        Sleep(100 * 3);
-        grid.addRowsDn();
-        grid.showG();
-        grid.gamechk();
-        grid.spcfill();
-        cout << endl << "|" << endl << "|" << endl << "v" ;
+    case 2:
+    Sleep(1000 * 3);
+    grid.addRowsDn();
+    grid.showG();
+    grid.gamechk();
+    grid.spcfill();
+    cout << endl << "|" << endl << "|" << endl << "v" ;
 
+    case 3:
+    Sleep(1000 * 3);
+    grid.addRowsLf();
+    grid.showG();
+    grid.gamechk();
+    grid.spcfill();
+    cout << endl << "<" << "-" << "-";
 
-
-        Sleep(100 * 3);
-        grid.addRowsLf();
-        grid.showG();
-        grid.gamechk();
-        grid.spcfill();
-        cout << endl << "<" << "-" << "-";
+    }
 
     }
     return 0;

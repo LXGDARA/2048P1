@@ -1,0 +1,50 @@
+#include <cstdlib>
+#include <iostream>
+
+using namespace std;
+
+int main(int argc, char *argv[])
+{
+
+    int t;
+    int it; // input tines
+    int s;
+    int is; // input space
+
+    cin >> it;
+    cin >> is;
+    
+
+        for(t = 0; t<= it; t++){
+
+            cout << endl;
+
+            cout << "*" ;
+
+            for(s = is; s>= 0; s--){
+
+                cout << " ";
+
+            }
+
+            for(int t2 = 0; t2<it/it; t2++){
+                cout << "*";
+                for(s = is; s>= 0; s--){
+
+                    cout << " ";
+
+                }
+
+            }
+
+            for(int t3 = 0; t3<it/it; t3++){
+                cout << "*";
+            }
+            cout << endl << endl << " " ;
+
+
+        }
+
+    system("PAUSE");
+    return EXIT_SUCCESS;
+}

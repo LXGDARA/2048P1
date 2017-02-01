@@ -1,0 +1,66 @@
+#include <cstdlib>
+
+#include <iostream>
+
+
+
+using namespace std;
+
+
+
+int main(int argc, char *argv[])
+
+{
+    int t;
+    int it; // input tines
+    int s;
+    int is; // input space
+    int hh; // handle height
+    int ihh; // input handle height
+    hh = 0;
+    cin >> it;
+    cin >> is;
+    cin >> ihh;
+    system(" color 2");
+        for(t = 0; t<it; t++){
+
+            cout << "$" ;
+
+            for(s = is-1; s>= 0; s--){
+                cout << " ";
+            }
+            for(int t2 = 0; t2<it/it; t2++){
+                cout << "$";
+                for(s = is-1; s>= 0; s--){
+                    cout << " ";
+                }
+            }
+            for(int t3 = 0; t3<it/it; t3++){
+                cout << "$";
+            }
+            cout << endl ;
+
+        }
+            cout << "\b";
+           for(int t4 = -1; t4<is*2 + 2; t4++){
+               cout << "$";
+           }
+            cout << endl;
+           for(hh = 1; hh <=ihh; hh++){
+               cout << " ";
+
+               for(s = is-1; s>= 0; s--){
+                   cout << " ";
+               }
+               for(int hh2 = 1; hh2 <=ihh/ihh; hh2++){
+                cout << "$";
+
+               }
+               cout << endl;
+           }
+
+    system("PAUSE");
+
+    return EXIT_SUCCESS;
+
+}

@@ -62,7 +62,7 @@ using namespace std;
             for(val1 = 0; val1<counter; val1++){
                 // increases second position in colum
                 for(val2 = val1+1; val2<=3; val2++){
-                    // makes sure that values are equal so that it can add right     
+                    // makes sure that values are equal so that it can add right
                     if(board[row1][val2] == board[row1][val1] && board[row1][val2] > 0){
                         board[row1][val2] ++;
                     }
@@ -234,7 +234,7 @@ using namespace std;
             int row1 = 0;
             int row3 = 2;
             int row4 = 3;
-            
+
             for(int i = 0; i <=3; i++){
                     switch(board[row1][i]){
                         case 36 :
@@ -247,7 +247,7 @@ using namespace std;
             for(int i = 0; i<=3; i++){
                 for(int j = 0; j<=3; j++){
                     if(board[i][j] != board[i + 1][j]){
-                    system("pause");
+                    system("PAUSE");
                     cout << "game over!!";
                     }
                 }
@@ -280,7 +280,7 @@ int main()
     grid.boardinit(); //initializes all values to 0
     grid.randpos(); //sets two random positions to 1
     cout << "\t\t" << "Welcome to 2048!!!" << endl << "\t\t" << "The game plays itself, so sit back and watch!" << endl << endl;
-    
+
     int i = 1;
     //the purpose of this code is to have the game play by itself
     while(i>0){

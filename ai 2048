@@ -424,7 +424,7 @@ using namespace std;
             cout << match << endl << match2 << endl << match3 << endl<< match4;
         }
 
-    };
+    }movbrd;
 
 int main()
 {
@@ -482,12 +482,12 @@ int main()
     int k = 10;
     //the purpose of this code is to have the game play by itself
     while(k>0){
-    movchk movbrd;
-    movchk.upchk();
-    movchk.rghtchk();
-    movchk.dwnchk();
-    movchk.lftchk();
-    movchk.shwbrd();
+
+    movbrd.upchk();
+    movbrd.rghtchk();
+    movbrd.dwnchk();
+    movbrd.lftchk();
+    movbrd.shwbrd();
 
     int l;
     l = rand() % 4;// determines the way the grid will add. 0 = up, 1 = right, 2 = down, 3 = left

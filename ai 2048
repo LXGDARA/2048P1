@@ -237,11 +237,7 @@ using namespace std;
         }
         // checks if we're at 2^36
         void gamechk(){
-            int row2 = 1;
             int row1 = 0;
-            int row3 = 2;
-            int row4 = 3;
-
             for(int i = 0; i <=3; i++){
                     switch(board[row1][i]){
                         case 36 :
@@ -268,7 +264,6 @@ using namespace std;
             int row3 = 2;
             int row4 = 3;
             int val1 = 0;
-            int val2 = 0;
             // counter is set to equal 3, and also serves as the number of times the position of the boxes will increase in a proxy place
             for(val1 = 0;val1<counter;val1++){
                 board[row1][val1] = 0;
@@ -280,30 +275,44 @@ using namespace std;
 
    };
 
-   class movchk(){
+   class movchk{
+       public:
        int upbrd[4][4] = {};
        int rghtbrd[4][4] = {};
-       int downbrd[4][4] = {};
+       int dwnbrd[4][4] = {};
        int lftbrd[4][4] = {};
 
-       int val1;
-       int val2;
-       int countr; = 3;
+       int row2 = 1;
+       int row1 = 0;
+       int row3 = 2;
+       int row4 = 3;
+
+       int countr = 3;
        int match;
+       int match2;
+       int match3;
+       int match4;
         void upchk(){
+            int val1 = 0;
+            int val2 = 0;
             for(val1 = 0; val1<=countr; val1++){
                 for(val2 = 0; val2<=countr; val2++){
                     upbrd[val1][val2] = board[val1][val2];
-
-                    if(board[row1][val1] == board[row2][val1] && board[row1][val1] > 0){
+                }
+            }
+            val1 = 0;
+            val2 = 0;
+             for(val1 = 0; val1<=countr; val1++){
+                for(val2 = 0; val2<=countr; val2++){
+                    if(upbrd[row1][val1] == upbrd[row2][val1] && upbrd[row1][val1] > 0){
                         match++;
                     }
                     // makes sure that values are equal so that it can add up
-                    if(board[row2][val1] == board[row3][val1] && board[row2][val1] > 0){
+                    if(upbrd[row2][val1] == upbrd[row3][val1] && upbrd[row2][val1] > 0){
                         match++;
                     }
                     // makes sure that values are equal so that it can add up
-                    if(board[row3][val1] == board[row4][val1] && board[row3][val1] > 0){
+                    if(upbrd[row3][val1] == upbrd[row4][val1] && upbrd[row3][val1] > 0){
                         match++;
                     }
                 }
@@ -311,30 +320,111 @@ using namespace std;
         }
 
         void rghtchk(){
+            int val1 = 0;
+            int val2 = 1;
             for(val1 = 0; val1<=countr; val1++){
-                for(val2 = 0; val2<=countr; val2++){
+                for(val2 = 1; val2<=countr; val2++){
                     rghtbrd[val1][val2] = board[val1][val2];
+
+                }
+            }
+            val1 = 0;
+            val2 = 1;
+            for(val1 = 0; val1<=countr; val1++){
+                for(val2 = 1; val2<=countr; val2++){
+                    // makes sure that values are equal so that it can add right
+                    if(rghtbrd[row1][val2] == rghtbrd[row1][val1] && rghtbrd[row1][val2] > 0){
+                        match2++;
+                    }
+                    // makes sure that values are equal so that it can add right
+                    if(rghtbrd[row2][val2] == rghtbrd[row2][val1] && rghtbrd[row2][val2] > 0){
+                        match2++;
+                    }
+                    // makes sure that values are equal so that it can add right
+                    if(rghtbrd[row3][val2] == rghtbrd[row3][val1] && rghtbrd[row3][val2] > 0){
+                        match2++;
+                    }
+                    // makes sure that values are equal so that it can add right
+                    if(rghtbrd[row4][val2] == rghtbrd[row4][val1] && rghtbrd[row4][val2] > 0){
+                        match2++;
+                    }
                 }
             }
         }
 
         void dwnchk(){
+            int val1 = 0;
+            int val2 = 0;
             for(val1 = 0; val1<=countr; val1++){
                 for(val2 = 0; val2<=countr; val2++){
                     dwnbrd[val1][val2] = board[val1][val2];
+
+                }
+            }
+            val1 = 0;
+            val2 = 0;
+            for(val1 = 0; val1<=countr; val1++){
+                for(val2 = 0; val2<=countr; val2++){
+                    if(dwnbrd[row4][val1] == dwnbrd[row3][val1] && dwnbrd[row4][val1] > 0){
+                        match3++;
+                    }
+                    // makes sure that values are equal so that it can add down
+                    if(dwnbrd[row3][val1] == dwnbrd[row2][val1] && dwnbrd[row3][val1] > 0){
+                        match3++;
+                    }
+                    // makes sure that values are equal so that it can add down
+                    if(dwnbrd[row2][val1] == dwnbrd[row1][val1] && dwnbrd[row2][val1] > 0){
+                        match3++;
+                    }
+                    // makes sure that values are equal so that it can add down
+                    if(dwnbrd[row1][val1] == dwnbrd[row2][val1] && dwnbrd[row1][val1] > 0){
+                        match3++;
+                    }
                 }
             }
         }
 
-        void lftbrd(){
+        void lftchk(){
+            int val1 = 0;
+            int val2 = 1;
             for(val1 = 0; val1<=countr; val1++){
-                for(val2 = 0; val2<=countr; val2++){
+                for(val2 = 1; val2<=countr; val2++){
                     lftbrd[val1][val2] = board[val1][val2];
                 }
             }
+            val1 = 0;
+            val2 = 1;
+            for(val1 = 0; val1<=countr; val1++){
+                for(val2 = 1; val2<=countr; val2++){
+                    if(lftbrd[row1][val1] == lftbrd[row1][val2] && lftbrd[row1][val2] > 0){
+                        match4++;
+                    }
+                    // makes sure that values are equal so that it can add down
+                    if(lftbrd[row2][val1] == lftbrd[row2][val2] && lftbrd[row2][val1] > 0){
+                        match4++;
+                    }
+                    // makes sure that values are equal so that it can add down
+                    if(lftbrd[row3][val1] == lftbrd[row3][val2] && lftbrd[row3][val1] > 0){
+                        match4++;
+                    }
+                    // makes sure that values are equal so that it can add left
+                    if(lftbrd[row4][val1] == lftbrd[row4][val2] && lftbrd[row4][val1] > 0){
+                        match4++;
+                    }
+                }
+            }
         }
 
-   }
+        int shwbrd(){
+            return match;
+            return match2;
+            return match3;
+            return match4;
+
+            cout << match << endl << match2 << endl << match3 << endl<< match4;
+        }
+
+    };
 
 int main()
 {
@@ -345,7 +435,7 @@ int main()
     grid.randpos(); //sets two random positions to 1
     cout << "\t\t" << "Welcome to 2048!!!" << endl << "\t\t" << "The game plays itself, so sit back and watch!" << endl << endl;
 
-    int i = 1;
+    int i = 10;
     //the purpose of this code is to have the game play by itself
     while(i>0){
 
@@ -360,7 +450,6 @@ int main()
     grid.gamechk();// checks if the game is over(if we've attained a value above 2^36)
     grid.spcfill();// randomly puts 2^1 in a random spot
     cout << endl << "\t\t" << "^" << endl << "|" << endl << "|" << endl;// indicates direction that's occouring
-    break;
 
     // everything beyond here should be self-explanitory
 
@@ -387,9 +476,24 @@ int main()
     grid.gamechk();
     grid.spcfill();
     cout << endl << "\t\t" << "<" << "-" << "-" << endl;
-
     }
+     i--;
+}
+    int k = 10;
+    //the purpose of this code is to have the game play by itself
+    while(k>0){
+    movchk movbrd;
+    movchk.upchk();
+    movchk.rghtchk();
+    movchk.dwnchk();
+    movchk.lftchk();
+    movchk.shwbrd();
 
-    }
+    int l;
+    l = rand() % 4;// determines the way the grid will add. 0 = up, 1 = right, 2 = down, 3 = left
+
+
+}
+
     return 0;
 }

@@ -385,15 +385,7 @@ using namespace std;
                     }
             }
         }
-        // shows current status of all blocks
-        void showG(){
-            for(int i = 0; i <4; i++){
-                for(int j = 0; j < 4; j++){
-                    cout << "\t\t" << board[i][j] << "   ";
-                }
-            cout << endl;
-            }
-        }
+
         // randomizes two positions to begin the game with
         void randpos(){
             int i;
@@ -651,6 +643,17 @@ using namespace std;
         return match4;
         match4 = 0;
     }
+
+    // shows current status of all blocks
+        void showG(){
+            for(int i = 0; i <4; i++){
+                for(int j = 0; j < 4; j++){
+                    cout << "  " << board[i][j] << "  " << match << endl << " possible moves up" << endl << match2 << " possible moves right" << endl << match3 << " possible moves down" << endl << match4 << "  possible moves left";
+                }
+            // put matches in an array
+            }
+        }
+
    };
 
 int main()
@@ -671,29 +674,29 @@ int main()
             case 0 :
             Sleep(100 * 3);// delays so we can understand the what's going on
             grid.addUp();// adds up
-            grid.showG();// shows the current status of the board
+            gameobj.showG();// shows the current status of the board
             grid.gamechk();// checks if the game is over(if we've attained a value above 2^36)
             grid.spcfill();// randomly puts 2^1 in a random spot
-            cout << endl << "\t\t" << "^" << endl << "|" << endl << "|" << endl;// indicates direction that's occouring
+            cout << endl << "\t\t" << "^" << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl;// indicates direction that's occouring
             // everything beyond here explains itself
             case 1:
             Sleep(100 * 3);
             grid.addRowsRt();
-            grid.showG();
+            gameobj.showG();
             grid.gamechk();
             grid.spcfill();
             cout << endl << "\t\t" << "-" << "-" << ">" << endl;
             case 2:
             Sleep(100 * 3);
             grid.addRowsDn();
-            grid.showG();
+            gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "|" << endl << "|" << endl << "v" << endl;
+            cout << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl << "\t\t" << "v" << endl;
             case 3:
             Sleep(100 * 3);
             grid.addRowsLf();
-            grid.showG();
+            gameobj.showG();
             grid.gamechk();
             grid.spcfill();
             cout << endl << "\t\t" << "<" << "-" << "-" << endl;
@@ -740,37 +743,37 @@ int main()
         if(matches[0] == gameobj.match){
             Sleep(100 * 3);// delays so we can understand the what's going on
             grid.addUp();// adds up
-            grid.showG();// shows the current status of the board
+            gameobj.showG();// shows the current status of the board
             grid.gamechk();// checks if the game is over(if we've attained a value above 2^36)
             grid.spcfill();// randomly puts 2^1 in a random spot
-            cout << endl << "\t\t" << "^" << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl;// indicates direction that's occouring
+            cout << endl << "\t\t" << "^" << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl ; //indicates direction that's occouring
         }
        //if the greatest value is for the direction right then carry out addition in right direction
-       if(matches[0] == gameobj.match2){
+       else if(matches[0] == gameobj.match2){
             Sleep(100 * 3);
             grid.addRowsRt();
-            grid.showG();
+            gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "-" << "-" << ">" << endl;
+            cout << endl << "\t\t" << "-" << "-" << ">" << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left"; //indicates direction that's occouring;
        }
        //if the greatest value is for the direction down then carry out addition in down direction
-       if(matches[0] == gameobj.match3){
+       else if(matches[0] == gameobj.match3){
            Sleep(100 * 3);
             grid.addRowsDn();
-            grid.showG();
+            gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "down" << endl;
+            cout << endl << "\t\t" << "down" << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";;
        }
        //if the greatest value is for the direction left then carry out addition in left direction
-        if(matches[0] == gameobj.match4){
+        else if(matches[0] == gameobj.match4){
             Sleep(100 * 3);
             grid.addRowsLf();
-            grid.showG();
+            gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "<"<< "-" << "-" << endl;
+            cout << endl << "\t\t" << "<"<< "-" << "-" << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";;
         }
 
         if(gameobj.match == 0 && gameobj.match2 == 0 && gameobj.match3 == 0 && gameobj.match4 == 0){
@@ -781,7 +784,7 @@ int main()
     }
 
         //this is here for testing procedures
-        //cout << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";
+        cout << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";
         //cout << endl << endl << matches[0] << endl << matches[1] << endl << matches[2] << endl << matches[3];
 
     return 0;

@@ -486,60 +486,67 @@ using namespace std;
                 }
             }
         val1 = 0;
-        val2 = 0;
          for(val1 = 0; val1<countr; val1++){
-            for(val2 = 0; val2<countr; val2++){
-                if(upbrd[row1][val1] == upbrd[row2][val1] && upbrd[row1][val1] > 0 && upbrd[row2][val1] > 0){
+                if(upbrd[0][val1] == upbrd[1][val1] && upbrd[0][val1] > 0 && upbrd[1][val1] > 0){
                     match++;
                 }
                 // makes sure that values are equal so that it can add up
-                if(upbrd[row2][val1] == upbrd[row3][val1] && upbrd[row2][val1] > 0 && upbrd[row3][val1] > 0){
+                if(upbrd[1][val1] == upbrd[2][val1] && upbrd[1][val1] > 0 && upbrd[2][val1] > 0){
                     match++;
                 }
                 // makes sure that values are equal so that it can add up
-                if(upbrd[row3][val1] == upbrd[row4][val1] && upbrd[row3][val1] > 0 && upbrd[row4][val1] > 0){
+                if(upbrd[2][val1] == upbrd[3][val1] && upbrd[2][val1] > 0 && upbrd[3][val1] > 0){
                     match++;
                 }
-            }
 
         }
         return match;
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++){
+                upbrd[i][j] = 0;
+            }
+        }
     }
     //checks in the right direction
     int match2 = 0;
     int rghtchk(){
         int val1 = 0;
-        int val2 = 1;
+        int val2 = 0;
         int countr = 4;
         int rghtbrd[4][4] = {};
-        for(val1 = 0; val1<countr; val1++){
-            for(val2 = 1; val2<countr; val2++){
+        for(val1 = 0; val1<4; val1++){
+            for(val2 = 0; val2<4; val2++){
                 rghtbrd[val1][val2] = board[val1][val2];
             }
         }
         val1 = 0;
         val2 = 1;
-        for(val1 = 0; val1<countr; val1++){
-            for(val2 = 1; val2<countr; val2++){
+        for(val1 = 0; val1<4; val1++){
+            for(val2 = 1; val2<4; val2++){
                 // makes sure that values are equal so that it can add right
-                if(rghtbrd[row1][val2] == rghtbrd[row1][val1] && rghtbrd[row1][val2] > 0 && rghtbrd[row1][val1] > 0){
+                if(rghtbrd[0][val1] == rghtbrd[0][val2] && rghtbrd[0][val2] > 0 && rghtbrd[0][val1] > 0){
                     match2++;
                 }
                 // makes sure that values are equal so that it can add right
-                if(rghtbrd[row2][val2] == rghtbrd[row2][val1] && rghtbrd[row2][val2] > 0 && rghtbrd[row2][val1] > 0){
+                if(rghtbrd[1][val1] == rghtbrd[1][val2] && rghtbrd[1][val2] > 0 && rghtbrd[1][val1] > 0){
                     match2++;
                 }
                 // makes sure that values are equal so that it can add right
-                if(rghtbrd[row3][val2] == rghtbrd[row3][val1] && rghtbrd[row3][val2] > 0 && rghtbrd[row3][val1] > 0){
+                if(rghtbrd[2][val1] == rghtbrd[2][val2] && rghtbrd[2][val2] > 0 && rghtbrd[2][val1] > 0){
                     match2++;
                 }
                 // makes sure that values are equal so that it can add right
-                if(rghtbrd[row4][val2] == rghtbrd[row4][val1] && rghtbrd[row4][val2] > 0 && rghtbrd[row4][val1] > 0){
+                if(rghtbrd[3][val1] == rghtbrd[3][val2] && rghtbrd[3][val2] > 0 && rghtbrd[3][val1] > 0){
                     match2++;
                 }
             }
         }
         return match2;
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++){
+                rghtbrd[i][j] = 0;
+            }
+        }
     }
     //checks in the down direction
     int match3 = 0;
@@ -557,60 +564,66 @@ using namespace std;
         val2 = 0;
         for(val1 = 0; val1<countr; val1++){
             for(val2 = 0; val2<countr; val2++){
-                if(dwnbrd[row4][val1] == dwnbrd[row3][val1] && dwnbrd[row4][val1] > 0 && dwnbrd[row3][val1] > 0){
+                if(dwnbrd[3][val1] == dwnbrd[2][val1] && dwnbrd[3][val1] != 0 && dwnbrd[2][val1] != 0){
                     match3++;
                 }
                 // makes sure that values are equal so that it can add down
-                if(dwnbrd[row3][val1] == dwnbrd[row2][val1] && dwnbrd[row3][val1] > 0 && dwnbrd[row2][val1] > 0){
+                if(dwnbrd[2][val1] == dwnbrd[1][val1] && dwnbrd[2][val1] != 0 && dwnbrd[1][val1] != 0){
                     match3++;
                 }
                 // makes sure that values are equal so that it can add down
-                if(dwnbrd[row2][val1] == dwnbrd[row1][val1] && dwnbrd[row2][val1] > 0 && dwnbrd[row1][val1] > 0){
-                    match3++;
-                }
-                // makes sure that values are equal so that it can add down
-                if(dwnbrd[row1][val1] == dwnbrd[row2][val1] && dwnbrd[row1][val1] > 0 && dwnbrd[row2][val1] > 0){
+                if(dwnbrd[1][val1] == dwnbrd[0][val1] && dwnbrd[1][val1] != 0 && dwnbrd[0][val1] != 0){
                     match3++;
                 }
             }
         }
+
         return match3;
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++){
+                dwnbrd[i][j] = 0;
+            }
+        }
     }
 
     //checks in the left direction
     int match4 = 0;
     int lftchk(){
         int val1 = 0;
-        int val2 = 1;
-        int countr = 4;
+        int val2 = 0;
         int lftbrd[4][4] = {};
-        for(val1 = 0; val1<countr; val1++){
-            for(val2 = 1; val2<countr; val2++){
+        for(val1 = 0; val1<4; val1++){
+            for(val2 = 0; val2<4; val2++){
                 lftbrd[val1][val2] = board[val1][val2];
             }
         }
         val1 = 0;
         val2 = 1;
-        for(val1 = 0; val1<countr; val1++){
-            for(val2 = 1; val2<countr; val2++){
-                if(lftbrd[row1][val1] == lftbrd[row1][val2] && lftbrd[row1][val2] > 0 && lftbrd[row1][val1] > 0){
+        for(val1 = 0; val1<4; val1++){
+            for(val2 = 1; val2<4; val2++){
+                if(lftbrd[0][val2] == lftbrd[row1][val1] && lftbrd[0][val2] != 0 && lftbrd[0][val1] != 0){
                     match4++;
                 }
                 // makes sure that values are equal so that it can add down
-                if(lftbrd[row2][val1] == lftbrd[row2][val2] && lftbrd[row2][val1] > 0 && lftbrd[row2][val2] > 0){
+                if(lftbrd[1][val2] == lftbrd[1][val1] && lftbrd[1][val2] != 0 && lftbrd[1][val1] != 0){
                     match4++;
                 }
                 // makes sure that values are equal so that it can add down
-                if(lftbrd[row3][val1] == lftbrd[row3][val2] && lftbrd[row3][val1] > 0 && lftbrd[row3][val2] > 0){
+                if(lftbrd[2][val2] == lftbrd[2][val1] && lftbrd[2][val1] != 0 && lftbrd[2][val2] != 0){
                     match4++;
                 }
                 // makes sure that values are equal so that it can add left
-                if(lftbrd[row4][val1] == lftbrd[row4][val2] && lftbrd[row4][val1] > 0 && lftbrd[row4][val2] > 0){
+                if(lftbrd[3][val2] == lftbrd[3][val1] && lftbrd[3][val1] != 0 && lftbrd[3][val2] != 0){
                     match4++;
                 }
             }
         }
         return match4;
+        for(int i = 0; i<4; i++){
+            for(int j = 0; j<4; j++){
+                lftbrd[i][j] = 0;
+            }
+        }
     }
     //matchret will return match values
     int matchret(){
@@ -627,30 +640,32 @@ using namespace std;
     }
 
     int matchrein(){
-        return match;
         match = 0;
     }
 
     int matchrein2(){
-        return match2;
         match2 = 0;
     }
     int matchrein3(){
-        return match3;
         match3 = 0;
     }
     int matchreint4(){
-        return match4;
         match4 = 0;
     }
 
     // shows current status of all blocks
         void showG(){
+            int myarray[] = {match, match2, match3, match4};
+            string one = "Possible moves up";
+            string two = "Possible moves right";
+            string three = "Possible movesdown";
+            string four = "Possible moves left";
+            string anarray[] = {one, two, three, four};
             for(int i = 0; i <4; i++){
                 for(int j = 0; j < 4; j++){
-                    cout << "  " << board[i][j] << "  " << match << endl << " possible moves up" << endl << match2 << " possible moves right" << endl << match3 << " possible moves down" << endl << match4 << "  possible moves left";
+                    cout << board[i][j] << "   ";
                 }
-            // put matches in an array
+            cout << myarray[i] << anarray[i] << endl;
             }
         }
 
@@ -677,7 +692,7 @@ int main()
             gameobj.showG();// shows the current status of the board
             grid.gamechk();// checks if the game is over(if we've attained a value above 2^36)
             grid.spcfill();// randomly puts 2^1 in a random spot
-            cout << endl << "\t\t" << "^" << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl;// indicates direction that's occouring
+            cout << endl << "\t" << "^" << endl << "|" << endl << "|" << endl;// indicates direction that's occouring
             // everything beyond here explains itself
             case 1:
             Sleep(100 * 3);
@@ -685,21 +700,21 @@ int main()
             gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "-" << "-" << ">" << endl;
+            cout << endl << "\t"  << "-" << "-" << ">" << endl;
             case 2:
             Sleep(100 * 3);
             grid.addRowsDn();
             gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl << "\t\t" << "v" << endl;
+            cout << endl << "\t"  << "|" << endl << "|" << endl << "v" << endl;
             case 3:
             Sleep(100 * 3);
             grid.addRowsLf();
             gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "<" << "-" << "-" << endl;
+            cout << endl << "\t"  << "<" << "-" << "-" << endl;
         }
         l--;
     }
@@ -714,11 +729,10 @@ int main()
         plchold = 0;
         val = 0;
 
-        //re intializes match variable
-        gameobj.matchrein();
-        gameobj.matchrein2();
-        gameobj.matchrein3();
-        gameobj.matchrein3();
+        gameobj.match = 0;
+        gameobj.match2 = 0;
+        gameobj.match3 = 0;
+        gameobj.match4 = 0;
 
         //tallies up all the match values
         gameobj.upchk();
@@ -746,7 +760,7 @@ int main()
             gameobj.showG();// shows the current status of the board
             grid.gamechk();// checks if the game is over(if we've attained a value above 2^36)
             grid.spcfill();// randomly puts 2^1 in a random spot
-            cout << endl << "\t\t" << "^" << endl << "\t\t" << "|" << endl << "\t\t" << "|" << endl ; //indicates direction that's occouring
+            cout << endl << "\t"  << "^" << endl << "|" << endl << "|" << endl ; //indicates direction that's occouring
         }
        //if the greatest value is for the direction right then carry out addition in right direction
        else if(matches[0] == gameobj.match2){
@@ -755,7 +769,7 @@ int main()
             gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "-" << "-" << ">" << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left"; //indicates direction that's occouring;
+            cout << endl << "\t"  << "-" << "-" << ">" << endl;
        }
        //if the greatest value is for the direction down then carry out addition in down direction
        else if(matches[0] == gameobj.match3){
@@ -764,7 +778,7 @@ int main()
             gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "down" << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";;
+            cout << endl << "\t"  << "|" << endl << "|" << endl << "\t"  << "v" << endl;
        }
        //if the greatest value is for the direction left then carry out addition in left direction
         else if(matches[0] == gameobj.match4){
@@ -773,7 +787,7 @@ int main()
             gameobj.showG();
             grid.gamechk();
             grid.spcfill();
-            cout << endl << "\t\t" << "<"<< "-" << "-" << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";;
+            cout << endl << "\t"  << "<"<< "-" << "-" << endl;
         }
 
         if(gameobj.match == 0 && gameobj.match2 == 0 && gameobj.match3 == 0 && gameobj.match4 == 0){
@@ -784,7 +798,7 @@ int main()
     }
 
         //this is here for testing procedures
-        cout << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";
+        //cout << gameobj.match << " possible moves up" << endl << gameobj.match2 << " possible moves right" << endl << gameobj.match3 << " possible moves down" << endl << gameobj.match4 << "  possible moves left";
         //cout << endl << endl << matches[0] << endl << matches[1] << endl << matches[2] << endl << matches[3];
 
     return 0;

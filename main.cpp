@@ -47,13 +47,13 @@ using namespace std;
                     if(board[i][j] == board[i][j-1] && board[i][j]>0 && board[i][j-1]>0){
                         if(j == 3){
                             board[i][j]++;
-                            board[i][j -1] = board[i][j-2];
+                            board[i][j-1] = board[i][j-2];
                             board[i][j-2] = board[i][j-3];
                             board[i][j-3] = 0;
                         }
                         if(j == 2){
                             board[i][j]++;
-                            board[i][j -1] = board[i][j-2];
+                            board[i][j-1] = board[i][j-2];
                             board[i][j-2] = 0;
                         }
                         if(j == 1){
@@ -62,10 +62,10 @@ using namespace std;
                         }
                     }
                     if(board[i][j] == 0){
-                        board[i][j] = board[i][j-1];
-                        board[i][j -1] = board[i][j-2];
-                        board[i][j-2] = board[i][j-3];
-                        board[i][j-3] = 0;
+                            board[i][j] = board[i][j-1];
+                            board[i][j-1] = board[i][j-2];
+                            board[i][j-2] = board[i][j-3];
+                            board[i][j-3] = 0;
                     }
                 }
             }
@@ -106,8 +106,9 @@ using namespace std;
         }
         //add down
        void addRowsDn(){
-            for(int i =3; i>=0; i--){
+            for(int i=3; i>0; i--){
                 for(int j = 0; j<4; j++){
+                    //cout << "I:" << i << "  j:" << j << endl;
                     if(board[i][j] == board[i-1][j]&& board[i][j]>0 && board[i-1][j]>0){
                         if(i == 3){
                             board[i][j]++;
@@ -120,7 +121,7 @@ using namespace std;
                             board[i-1][j] = board[i-2][j];
                             board[i-2][j] = 0;
                         }
-                        if(i == 2){
+                        if(i == 1){
                             board[i][j]++;
                             board[i-1][j] = 0;
                         }
@@ -394,19 +395,21 @@ int main()
 {
 
     chks gameobj;
-    srand (time(NULL));//sets seed for randomiser
-    //srand (0);
+   //srand (time(NULL));//sets seed for randomiser
+    srand (0);
     game grid; // creates the object in which relates to functions to be called
     grid.boardinit(); //initializes all values to 0
     grid.randpos(); //sets two random positions to 1
     cout << "\t\t" << "Welcome to 2048!!!" << endl << "\t\t" << "The game plays itself, so sit back and watch!" << endl << endl;
-    int l = 10;
+    /*int l = 10;
     //the purpose of the first while loop is to mess up the game a bit
     while(l>0){
         int j;
+        cout << "j:" << j << endl;
         j = rand() % 4;// determines the way the grid will add. 0 = up, 1 = right, 2 = down, 3 = left
         switch(j){
             case 0 :
+            cout << "case 0:" << endl;
             Sleep(100 * 3);// delays so we can understand the what's going on
             grid.addUp();// adds up
             gameobj.showG();// shows the current status of the board
@@ -415,6 +418,7 @@ int main()
             cout << endl << "\t" << "^" << endl << "|" << endl << "|" << endl;// indicates direction that's occouring
             // everything beyond here explains itself
             case 1:
+            //cout << "case 1:" << endl;
             Sleep(100 * 3);
             grid.addRowsRt();
             gameobj.showG();
@@ -422,13 +426,17 @@ int main()
             grid.spcfill();
             cout << endl << "\t"  << "-" << "-" << ">" << endl;
             case 2:
+            //cout << "case 2:" << endl;
             Sleep(100 * 3);
             grid.addRowsDn();
+            //cout << "before gameobj.showg()" << endl;
             gameobj.showG();
+            //cout << "after gameobj.showg()" << endl;
             grid.gamechk();
             grid.spcfill();
             cout << endl << "\t"  << "|" << endl << "|" << endl << "v" << endl;
             case 3:
+            cout << "case 3:" << endl;
             Sleep(100 * 3);
             grid.addRowsLf();
             gameobj.showG();
@@ -437,7 +445,7 @@ int main()
             cout << endl << "\t"  << "<" << "-" << "-" << endl;
         }
         l--;
-    }
+    }*/
 
     //The AI is playing here
     int plchold;
@@ -449,6 +457,7 @@ int main()
     while(i>0){
         plchold = 0;
         val = 0;
+
 
         gameobj.match = 0;
         gameobj.match2 = 0;
